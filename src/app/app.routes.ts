@@ -5,16 +5,22 @@ import { EdicaoProdutosComponent } from './components/pages/edicao-produtos/edic
 
 // Configuração de rotas
 export const routes: Routes = [
-    {
-        path: 'pages/cadastro-produtos', // ROTA
-        component: CadastroProdutosComponent
-    },
-    {
-        path: 'pages/consulta-produtos', // ROTA
-        component: ConsultaProdutosComponent
-    },
-    {
-        path: 'pages/edicao-produtos', // ROTA
-        component: EdicaoProdutosComponent
-    }
+  {
+    path: 'pages/cadastro-produtos', // ROTA
+    component: CadastroProdutosComponent,
+  },
+  {
+    path: 'pages/consulta-produtos', // ROTA
+    component: ConsultaProdutosComponent,
+  },
+  {
+    path: 'pages/edicao-produtos', // ROTA
+    component: EdicaoProdutosComponent,
+  },
+  {
+    // Rota padrão
+    path: '',
+    pathMatch: 'full',
+    redirectTo: 'pages/consulta-produtos',
+  },
 ];
