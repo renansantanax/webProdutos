@@ -7,10 +7,10 @@
             <p class="card-subtitle">Utilize o formulário para pesquisar produtos.</p>            
           </div>
           <div class="card-body">
-            <form>
+            <form [formGroup]="form" (ngSubmit)="onSubmit()">
               <div class="mb-3">
                 <label for="nomeProduto" class="form-label">Nome do Produto</label>
-                <input type="text" class="form-control" id="nomeProduto" placeholder="Digite o nome do produto">
+                <input type="text" formControlName="nome" class="form-control" id="nomeProduto" placeholder="Digite o nome do produto">
               </div>
               <button type="submit" class="btn btn-primary w-100">Pesquisar</button>
             </form>
@@ -19,7 +19,7 @@
 
 
         <!-- Tabela de Produtos -->
-        <div class="card mt-4 shadow-lg">        
+        <div class="card mt-4 shadow-lg" *ngIf="produtos.length > 0">        
           <div class="card-body">
             <table class="table table-striped">
               <thead>
@@ -32,31 +32,11 @@
                 </tr>
               </thead>
               <tbody>
-                <tr>
-                  <td>Produto 1</td>
-                  <td>R$ 100,00</td>
-                  <td>50</td>
-                  <td>Eletrônicos</td>
-                  <td class="text-center">
-                    <button class="btn btn-warning btn-sm me-1">Atualizar</button>
-                    <button class="btn btn-danger btn-sm">Excluir</button>
-                  </td>
-                </tr>
-                <tr>
-                  <td>Produto 2</td>
-                  <td>R$ 200,00</td>
-                  <td>30</td>
-                  <td>Roupas</td>
-                  <td class="text-center">
-                    <button class="btn btn-warning btn-sm me-1">Atualizar</button>
-                    <button class="btn btn-danger btn-sm">Excluir</button>
-                  </td>
-                </tr>
-                <tr>
-                  <td>Produto 3</td>
-                  <td>R$ 50,00</td>
-                  <td>100</td>
-                  <td>Alimentos</td>
+                <tr *ngFor="let p of produtos">
+                  <td>{{p.nome}} </td>
+                  <td>{{p.preco}}</td>
+                  <td>{{p.quantidade}}</td>
+                  <td>{{p.categoria}}</td>
                   <td class="text-center">
                     <button class="btn btn-warning btn-sm me-1">Atualizar</button>
                     <button class="btn btn-danger btn-sm">Excluir</button>

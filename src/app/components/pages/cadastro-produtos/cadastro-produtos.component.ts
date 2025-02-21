@@ -16,6 +16,8 @@ import { FormControl, FormGroup, FormsModule, ReactiveFormsModule } from '@angul
 export class CadastroProdutosComponent {
   //atributos do componente
   categorias: any[] = []; //array de objetos
+  erros: any = null; //objeto
+  mensagem: string = ''; // mensagem de sucesso
 
   // funcao executada ao abrir a pagina
   ngOnInit() { }
@@ -47,10 +49,18 @@ export class CadastroProdutosComponent {
       { responseType: 'text' }
     ).subscribe({ //aguardando o retorno da API
       next: (data) => { // se a req for bem sucedida
-        console.log(data);
+        //limpar o erros
+        this.erros = null;
+
+        //capturar a msg de sucesso da api
+        this.mensagem = data;
+
+        //zerar os formulário
+        this.form.reset();
       },
       error: (e) => { // se a requisição falhar
-        console.log(e.error);
+        this.erros = JSON.parse(e.error);
+        this.mensagem = '';
       }
     });
 
