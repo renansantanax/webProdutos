@@ -1,11 +1,16 @@
-// variavel para configurar o endereço da API
-const apiUrl = 'http://localhost:8080';
+// variaveis para configurar os endereços da APIs
+export const apiProdutos = 'http://localhost:8081';
+export const apiUsuarios = 'http://localhost:8082';
 
 //mapeamento de cada endpoint da API
 export const endpoints = {
-  cadastrar_produto: `${apiUrl}/api/produtos/cadastrar`,
-  atualizar_produto: `${apiUrl}/api/produtos/atualizar`,
-  excluir_produto: `${apiUrl}/api/produtos/excluir`,
-  consultar_produtos: `${apiUrl}/api/produtos/consultar`,
-  consultar_categorias: `${apiUrl}/api/categorias/consultar`,
+  cadastrar_produto: `${apiProdutos}/api/produtos/cadastrar`,
+  atualizar_produto: `${apiProdutos}/api/produtos/atualizar`,
+  excluir_produto: `${apiProdutos}/api/produtos/excluir`,
+  consultar_produtos: `${apiProdutos}/api/produtos/consultar`,
+  obter_produto: `${apiProdutos}/api/produtos/obter`,
+  consultar_categorias: `${apiProdutos}/api/categorias/consultar`,
+  dashboard_categorias: `${apiProdutos}/api/dashboard/produtos-categoria`,
+  autenticar_usuario: `${apiUsuarios}/api/usuario/autenticar`,
+  criar_usuario: `${apiUsuarios}/api/usuario/criar`,
 };

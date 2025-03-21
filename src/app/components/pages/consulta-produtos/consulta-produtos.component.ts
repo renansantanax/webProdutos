@@ -8,10 +8,11 @@ import {
   ReactiveFormsModule,
 } from '@angular/forms';
 import { endpoints } from '../../../configurations/environments';
+import { RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-consulta-produtos',
-  imports: [CommonModule, FormsModule, ReactiveFormsModule],
+  imports: [CommonModule, FormsModule, ReactiveFormsModule, RouterLink],
   templateUrl: './consulta-produtos.component.html',
   styleUrl: './consulta-produtos.component.css',
 })
